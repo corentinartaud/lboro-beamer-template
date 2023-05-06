@@ -1,0 +1,65 @@
+\usepackage{hyperref}
+\usepackage{charter}
+\usepackage{tikz}
+\usepackage{graphicx, svg}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usefonttheme[onlymath]{serif} % Math looking fine!
+
+% The default colors used at Loughborough University
+\definecolor{regimental}{RGB}{51,0,102} % i.e. purple
+\definecolor{richmaroon}{RGB}{188,39,102} % i.e. pink
+
+%% Title slide formatting %%
+\setbeamerfont{subtitle}{size=\scriptsize}
+\setbeamertemplate{title page}{
+    \begin{tikzpicture}[remember picture, overlay]
+    \fill[regimental] (current page.south west) rectangle (current page.north east);
+    \draw[richmaroon, line width=1ex] (current page.north west) -- (current page.north east);
+    \node[anchor=center, align=left, text width=\textwidth, inner sep=0pt, text=white, text height=2.5ex] at (current page.center) {
+        \usebeamerfont{title}
+            {\centering\inserttitle\\[1cm]}
+        \rule{\linewidth}{0.4pt}
+        \usebeamerfont{subtitle}
+            {\insertauthor\\[0.2cm]}
+            {\insertinstitute\par}
+            \rule{\linewidth}{0.4pt}\\[0.5cm]
+            {\insertdate}
+    };
+    \node[anchor=south west, inner sep=0pt, xshift=1.55ex, yshift=.5ex] at (current page.south west) {\includesvg[height=.25in]{lborologo}};
+    \node[anchor=south east, inner sep=0pt, xshift=-2ex, yshift=2.3ex, align=right, text=white, font=\tiny] at (current page.south east) {\fontfamily{phv}\selectfont\textbf{\#InspiringWinners} since 1909};
+    \end{tikzpicture}
+}
+
+%% General frame formatting %%
+
+\setbeamertemplate{headline}{%
+    {\color{richmaroon}\rule{\paperwidth}{1ex}}%
+}
+
+% Used to change the color of titles and subtitles - avoids chaging frametitle
+\setbeamercolor*{titlelike}{use=structure, fg=regimental, bg=white}
+
+\setbeamercolor*{footline in head/foot}{use=structure, fg=white, bg=regimental}
+\setbeamertemplate{footline}{%
+    \usebeamertemplate*{headline}
+    \begin{beamercolorbox}[ht=8.25ex, dp=1ex]{footline in head/foot}
+    \hspace{1.2em}\includesvg[height=.25in]{lborologo}\quad
+    \hfill
+    \vbox{%
+      \hbox{\hspace{.65in}\fontfamily{phv}\selectfont\textbf{\#InspiringWinners} since 1909}%
+      \par
+      \hbox{
+        \usebeamertemplate***{navigation symbols}
+      }
+    }
+    \hspace{.5em}
+    \end{beamercolorbox}%
+}
+
+%% General configurations within frames %%
+
+% Used to change the color of itemize items
+\setbeamercolor{itemize item}{fg=richmaroon}
+% Remove navigation symbols from within frame added in footline
+\setbeamertemplate{sidebar right}{}
