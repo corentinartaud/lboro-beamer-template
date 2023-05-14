@@ -3,7 +3,7 @@ An unofficial LaTeX Beamer presentation template for Loughborough University
 
 ## Quick Start
 
-Get started quickly using [Overleaf]([https://www.overleaf.com/latex/templates/software-engineer-resume/gqxmqsvsbdjf](https://www.overleaf.com/latex/templates/lboro-beamer-template/kgrxdbxfjgts)) template.
+Get started quickly using [Overleaf](https://www.overleaf.com/latex/templates/lboro-beamer-template/kgrxdbxfjgts) template.
 
 ## Build
 
